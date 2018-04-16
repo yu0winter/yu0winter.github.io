@@ -1,11 +1,4 @@
-var cacheStorageKey = 'minimal-pwa-1'
-
-var cacheList = [
-  '/',
-  "index.html",
-  "144x144.png",
-]
-
+var cacheName = 'helloWorld'
 
 self.addEventListener('install', event => {
   event.waitUntil(
