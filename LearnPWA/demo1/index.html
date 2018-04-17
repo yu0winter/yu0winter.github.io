@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>我是Demo1</title>
+		<title></title>
 		<link rel="manifest" href="manifest.json">
 		<script type="text/javascript">
 			if ('serviceWorker' in navigator) {
@@ -16,9 +16,21 @@
     });
   });
 }
+			
+			// 当执行”添加到主屏幕“的操作时，内部会触发相应的事件beforinstallprompt
+window.addEventListener('beforeinstallprompt', function(e) {
+    e.userChoice.then(function (result){
+        if (result.outcome === 'dismissed'){
+            // 发送数据进行分析
+           	
+        } else {
+            // 发送数据进行分析
+        }
+    })
+})
 		</script>
 	</head>
 	<body>
-		<h2>今天天气不错，我心情挺好的</h2>
+		<h2>今天天气不错，我心情挺好的！！！</h2>
 	</body>
 </html>
