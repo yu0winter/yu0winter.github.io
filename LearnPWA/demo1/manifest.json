@@ -18,20 +18,10 @@
       "type": "image/png",
       "sizes": "180x180"
    }],
-// 用于定义对应的原生应用，类似应用安装横幅的形式去推广、引流。
-// "related_applications": [{
-//    "platform": "play",
-//    "id": "com.app.xxx"
-// }],
-   
-   
   "display": "standalone",
   "start_url": "index.html",
-  // 黑色背景
   "background_color": "#000000",
-  // 导航栏颜色
   "theme_color": "#2F3BA2",
-  // 竖屏。根据屏幕方向，自动竖屏180°切换
   "orientation": "portrait"
   
 }
