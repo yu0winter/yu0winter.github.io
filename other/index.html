@@ -26,10 +26,40 @@
     </header>
     <!--内容主体-->
     <main class="main">
-        <p>实现功能:</p>
-        <p>1.沉浸式（没有地址导航栏、AppIcon、AppName等）</p>
-        <p>2.离线功能</p>
-        <p>3.缓存机制，加速界面渲染</p>
+        <h2 id="PWA is what?" data-source-line="3"><a class="markdownIt-Anchor" href="#PWA is what?"></a>PWA is what?</h2>
+        <h4 id="并不是每一个-web-都叫做-pwa-根据-google-定义pwa-应该具有一下特性" data-source-line="4"><a class="markdownIt-Anchor" href="#并不是每一个-web-都叫做-pwa-根据-google-定义pwa-应该具有一下特性"></a>并不是每一个 Web 都叫做 PWA。根据 google 定义，PWA 应该具有一下特性：</h4>
+        <ul data-source-line="6">
+            <li>渐进式：能确保每个用户都能打开网页</li>
+            <li>响应式：PC，手机，平板，不管哪种格式，网页格式都能完美适配</li>
+            <li>离线应用：支持用户在没网的条件下也能打开网页，这里就需要 Service Worker 的帮助</li>
+            <li>APP 化：能够像 APP 一样和用户进行交互</li>
+            <li>常更新：一旦 Web 网页有什么改动，都能立即在用户端体现出来</li>
+            <li>安全：安全第一，给自己的网站加上一把绿锁--HTTPS 可搜索：能够被引擎搜索到
+            </li>
+            <li>推送：做到在不打开网页的前提下，推送新的消息（safari暂不支持）</li>
+            <li>可安装：能够将 Web 想 APP 一样添加到桌面</li>
+            <li>可跳转：只要通过一个连接就可以跳转到你的 Web 页面</li>
+        </ul>
+        <h2 id="总结一下" data-source-line="17"><a class="markdownIt-Anchor" href="#总结一下"></a>总结一下</h2>
+        <h4 id="优点" data-source-line="18"><a class="markdownIt-Anchor" href="#优点"></a>优点</h4>
+        <ul data-source-line="20">
+            <li>较好的用户体验。</li>
+            <li>直接添加到桌面，用户不需要下载</li>
+            <li>不受AppStroe监管，可动态更新</li>
+            <li>无网络也能访问</li>
+            <li>跨平台，有浏览器的地方就有他。很可能是未来的趋势。</li>
+        </ul>
+        <h4 id="缺点" data-source-line="26"><a class="markdownIt-Anchor" href="#缺点"></a>缺点</h4>
+        <ul data-source-line="28">
+            <li>全新的蓝海，基于ServiceWorker的缓存机制是一个全新的领域，有坑待填。</li>
+            <li>环境支持有限
+                <ul>
+                    <li>原生API有限。（参照M站）</li>
+                    <li>推送通知暂不支持</li>
+                    <li>Safari中缓存文件不超过50MB等</li>
+                </ul>
+            </li>
+        </ul>
     </main>
     <!-- loading动画 -->
     <div class="loader">
@@ -49,7 +79,7 @@
             <button id="toolbarItem1" tag='1' class="toolbar__Item__Button">新闻</button>
         </div>
         <div class="toolbar__item">
-            <button id="toolbarItem2" tag='2' class="toolbar__Item__Button" style="background-color:gray;">其他</button>
+            <button id="toolbarItem2" tag='2' class="toolbar__Item__Button" style="background-color:gray;">PWA简介</button>
         </div>
     </footer>
 </body>

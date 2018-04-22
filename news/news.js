@@ -5,9 +5,16 @@ const main = document.querySelector('main');
 const sourceSelector = document.querySelector('#sourceSelector');
 const defaultSource = 'Time';
 
+var isFirstLoad = true;
 window.addEventListener('load', e => {
     //	updateNews();
     //	updateSources();
+
+    if (isFirstLoad == false) {
+        return;
+    }
+    isFirstLoad = false;
+
     sourceSelector.addEventListener('change', evt => updateNews(evt.target.value));
     var loader = document.getElementsByClassName('loader')[0];
     loader.style.display = '';
