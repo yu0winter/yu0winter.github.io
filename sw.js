@@ -15,6 +15,8 @@ const
         '/AppShell/shell.js',
         '/scripts/main.js',
         '/images/launching.jpeg',
+        // App Icon
+        '/images/icons/icon-152x152.png',
         // '/offline/index.html',
         // 实际业务
         '/weather/index.html',
@@ -45,7 +47,6 @@ const
         '/images/icons/icon-72x72.png',
         '/images/icons/icon-128x128.png',
         '/images/icons/icon-144x144.png',
-        '/images/icons/icon-152x152.png',
         '/images/icons/icon-192x192.png',
         '/images/icons/icon-384x384.png',
         '/images/icons/icon-512x512.png'
