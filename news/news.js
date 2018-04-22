@@ -12,7 +12,6 @@ window.addEventListener('load', e => {
     var loader = document.getElementsByClassName('loader')[0];
     loader.style.display = '';
     updateSources().then(() => {
-        sourceSelector.value = defaultSource;
         updateNews();
 	    loader.style.display = 'none';
     });
@@ -30,7 +29,7 @@ async function updateNews(source = defaultSource) {
 function createArticle(article) {
     return `
     <div class="article">
-      <a href="${article.url}">
+      <a>
         <h2>${article.title}</h2>
         <img src="${article.urlToImage}" alt="${article.title}">
         <p>${article.description}</p>

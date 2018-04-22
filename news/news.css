@@ -11,3 +11,22 @@
 .article img {
   width: 100%;
 }
+
+option {
+color: white;
+}
+
+
+select {
+    background:transparent;
+    border:none;
+    width: 80pt;
+    color: white;
+right: 0px;
+    font-size: 14pt;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    text-align: right;
+}

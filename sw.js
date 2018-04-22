@@ -182,9 +182,7 @@ self.addEventListener('fetch', event => {
                         .catch(() => offlineAsset(url));
 
                 });
-
         })
-
     );
 
 });
