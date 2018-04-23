@@ -155,6 +155,8 @@
   background-size: contain; }
   .weather-forecast .icon.clear-day {
     background-image: url("../images/clear.png"); }
+  .weather-forecast .icon.clear {
+    background-image: url("../images/clear.png"); }
   .weather-forecast .icon.clear-night {
     background-image: url("../images/clear.png"); }
   .weather-forecast .icon.rain {
