@@ -24,7 +24,7 @@
     cardTemplate: document.querySelector('.cardTemplate'),
     container: document.querySelector('.main'),
     addDialog: document.querySelector('.dialog-container'),
-    daysOfWeek: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+    daysOfWeek: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
   };
 
 
@@ -33,12 +33,17 @@
    * Event listeners for UI elements
    *
    ****************************************************************************/
-   
+
+   /**
+    * 点击刷新
+    */
   document.getElementById('butRefresh').addEventListener('click', function() {
     // Refresh all of the forecasts
     app.updateForecasts();
   });
-
+  /**
+   * 添加地区天气 仅展开dialog
+   */
   document.getElementById('butAdd').addEventListener('click', function() {
     // Open/show the add new city dialog
     app.toggleAddDialog(true);
@@ -56,7 +61,7 @@
     app.getForecast(key, label);
     app.selectedCities.push({key: key, label: label});
     app.saveSelectedCities();
-    app.toggleAddDialog(false);
+    app.toggleAddDialog(false);//折叠dialog
   });
 
   document.getElementById('butAddCancel').addEventListener('click', function() {
@@ -125,7 +130,6 @@
       Math.round(humidity) + '%';
     card.querySelector('.current .wind .value').textContent =
       Math.round(wind.speed);
-    card.querySelector('.current .wind .direction').textContent = wind.direction;
     var nextDays = card.querySelectorAll('.future .oneday');
     var today = new Date();
     today = today.getDay();
@@ -160,14 +164,17 @@
    * Gets a forecast for a specific city and updates the card with the data.
    * getForecast() first checks if the weather data is in the cache. If so,
    * then it gets that data and populates the card with the cached data.
-   * Then, getForecast() goes to the network for fresh data. If the network
+   * Then, getForecast() goes to the network for fresh data. If the network 
    * request goes through, then the card gets updated a second time with the
    * freshest data.
    */
   app.getForecast = function(key, label) {
-    var statement = 'select * from weather.forecast where woeid=' + key;
+    var statement = 'select * from weather.forecast where u="c" and woeid=' + key;
     var url = 'https://query.yahooapis.com/v1/public/yql?format=json&q=' +
         statement;
+    /*北京市*/
+    // var url = 'https://query.yahooapis.com/v1/public/yql?format=json&q=select * from weather.forecast where u="c" and woeid=2151330'
+
     // TODO add cache logic here
     if ('caches' in window) {
       /*
@@ -233,7 +240,7 @@
       case 34: // fair (day)
       case 36: // hot
       case 3200: // not available
-        return 'clear-day';
+        return 'clear';
       case 0: // tornado
       case 1: // tropical storm
       case 2: // hurricane
@@ -293,8 +300,8 @@
    * discussion.
    */
   var initialWeatherForecast = {
-    key: '2459115',
-    label: 'New York, NY',
+    key: '2151194',
+    label: '北京, 通州区',
     created: '2016-07-22T01:00:00Z',
     channel: {
       astronomy: {
@@ -303,7 +310,7 @@
       },
       item: {
         condition: {
-          text: "Windy",
+          text: "wind",
           date: "Thu, 21 Jul 2016 09:00 PM EDT",
           temp: 56,
           code: 24
@@ -354,11 +361,10 @@
      * scenario could guess the user's location via IP lookup and then inject
      * that data into the page.
      */
-    app.updateForecastCard(initialWeatherForecast);
+    // app.updateForecastCard(initialWeatherForecast);
     app.selectedCities = [
       {key: initialWeatherForecast.key, label: initialWeatherForecast.label}
     ];
     app.saveSelectedCities();
   }
-  
 })();
