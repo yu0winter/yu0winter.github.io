@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <title>WonderfulPWA</title>
-        <!-- 侵入式体验 -->
-    <link rel="manifest" href="manifest.json">
+    <!-- 侵入式体验 -->
+    <link rel="manifest" href="./manifest.json">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="WonderfulPWA">
-    <link rel="apple-touch-icon" href="images/icons/icon-152x152.png">
-    <meta name="msapplication-TileImage" content="images/icons/icon-144x144.png">
-    <meta name="msapplication-TileColor" content="#2F3BA2">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=0">
+
     <!-- 启动图动画 -->
     <script type="text/javascript">
-    	window.onload = function(){
-    		setTimeout("window.location.href = 'weather/index.html'",1000);
-    	};
+        window.onload = function () {
+            setTimeout("window.location.href = 'weather/index.html'", 0);
+        };
     </script>
     <script src="/scripts/main.js" defer></script>
 </head>
+
 <body>
-    <main>
-    	<img src="images/launching.jpeg"  alt="启动图" width="100%" height="100%" />
+    <main style="background-color: black;">
     </main>
 </body>
+
 </html>

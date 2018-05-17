@@ -15,13 +15,31 @@
  */
 
 .header #butRefresh {
-    background: url(../images/ic_refresh_white_24px.svg);
+  background: url(../images/ic_refresh_white_24px.svg);
 }
 
 .header #butAdd {
-    background: url(../images/ic_add_white_24px.svg) center center no-repeat;
+  background: url(../images/ic_add_white_24px.svg) center center no-repeat;
 }
- 
+
+.loader {
+  left: 50%;
+  top: 50%;
+  position: fixed;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.loader #spinner {
+  box-sizing: border-box;
+  stroke: #40E0D0;
+  stroke-width: 3px;
+  -webkit-transform-origin: 50%;
+  transform-origin: 50%;
+  -webkit-animation: line 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite, rotate 1.6s linear infinite;
+  animation: line 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite, rotate 1.6s linear infinite;
+}
+
 .dialog-container {
   background: rgba(0, 0, 0, 0.57);
   position: fixed;
@@ -33,14 +51,16 @@
   pointer-events: none;
   will-change: opacity;
   -webkit-transition: opacity 0.333s cubic-bezier(0, 0, 0.21, 1);
-  transition: opacity 0.333s cubic-bezier(0, 0, 0.21, 1); }
+  transition: opacity 0.333s cubic-bezier(0, 0, 0.21, 1);
+}
 
 .dialog-container--visible {
   opacity: 1;
-  pointer-events: auto; }
+  pointer-events: auto;
+}
 
 .dialog {
-  background: #FFF;
+  background: #DCDCDC;
   border-radius: 2px;
   box-shadow: 0 0 14px rgba(0, 0, 0, 0.24), 0 14px 28px rgba(0, 0, 0, 0.48);
   min-width: 280px;
@@ -48,30 +68,57 @@
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%) translateY(30px);
-          transform: translate(-50%, -50%) translateY(30px);
+  transform: translate(-50%, -50%) translateY(30px);
   -webkit-transition: -webkit-transform 0.333s cubic-bezier(0, 0, 0.21, 1) 0.05s;
   transition: -webkit-transform 0.333s cubic-bezier(0, 0, 0.21, 1) 0.05s;
   transition: transform 0.333s cubic-bezier(0, 0, 0.21, 1) 0.05s;
-  transition: transform 0.333s cubic-bezier(0, 0, 0.21, 1) 0.05s, -webkit-transform 0.333s cubic-bezier(0, 0, 0.21, 1) 0.05s; }
+  transition: transform 0.333s cubic-bezier(0, 0, 0.21, 1) 0.05s, -webkit-transform 0.333s cubic-bezier(0, 0, 0.21, 1) 0.05s;
+}
 
-.dialog > div {
+.dialog>div {
   padding-left: 24px;
-  padding-right: 24px; }
+  padding-right: 24px;
+}
 
 .dialog-title {
   padding-top: 20px;
-  font-size: 1.25em; }
+  font-size: 1.25em;
+}
 
 .dialog-body {
   padding-top: 20px;
-  padding-bottom: 24px; }
-  .dialog-body select {
-    width: 100%;
-    font-size: 2em; }
+  padding-bottom: 24px;
+}
+
+.dialog-body select {
+  width: 100%;
+  font-size: 1.25em;
+}
 
 .dialog-buttons {
   padding: 8px !important;
-  float: right; }
+  float: right;
+}
+
+.dialog-buttons .button {
+  width: 100px;
+  /* padding:8px;   */
+  height: 40px;
+  background-color: #A9A9A9;
+  border-color: #357ebd;
+  color: #fff;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  /* future proofing */
+  -khtml-border-radius: 10px;
+  /* for old Konqueror browsers */
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  font-weight: 900;
+  font-size: 85%
+}
 
 .card {
   padding: 16px;
@@ -80,115 +127,182 @@
   background: #fff;
   border-radius: 2px;
   margin: 16px;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
 
 .weather-forecast .location {
-  font-size: 1.75em; }
+  font-size: 1.75em;
+}
 
-.weather-forecast .date, .weather-forecast .description {
-  font-size: 1.25em; }
+.weather-forecast .date,
+.weather-forecast .description {
+  font-size: 1.25em;
+}
 
 .weather-forecast .current {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex; }
-  .weather-forecast .current .icon {
-    width: 128px;
-    height: 128px; }
-  .weather-forecast .current .visual {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    font-size: 4em; }
-    .weather-forecast .current .visual .scale {
-      font-size: 0.5em;
-      vertical-align: super; }
-  .weather-forecast .current .visual, .weather-forecast .current .description {
-    -webkit-box-flex: 1;
-    -webkit-flex-grow: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1; }
-  .weather-forecast .current .sunset:before {
-    content: "Sunset: ";
-    color: #888; }
-  .weather-forecast .current .wind:before {
-    content: "Wind: ";
-    color: #888; }
-  .weather-forecast .current .sunrise:before {
-    content: "Sunrise: ";
-    color: #888; }
-  .weather-forecast .current .humidity:before {
-    content: "Humidity: ";
-    color: #888; }
-  .weather-forecast .current .pollen:before {
-    content: "Pollen Count: ";
-    color: #888; }
-  .weather-forecast .current .pcount:before {
-    content: "Pollen ";
-    color: #888; }
+  display: flex;
+}
+
+.weather-forecast .current .icon {
+  width: 128px;
+  height: 128px;
+}
+
+.weather-forecast .current .visual {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 4em;
+}
+
+.weather-forecast .current .visual .scale {
+  font-size: 0.5em;
+  vertical-align: super;
+}
+
+.weather-forecast .current .visual,
+.weather-forecast .current .description {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+.weather-forecast .current .sunset:before {
+  content: "Sunset: ";
+  color: #888;
+}
+
+.weather-forecast .current .wind:before {
+  content: "Wind: ";
+  color: #888;
+}
+
+.weather-forecast .current .sunrise:before {
+  content: "Sunrise: ";
+  color: #888;
+}
+
+.weather-forecast .current .humidity:before {
+  content: "Humidity: ";
+  color: #888;
+}
+
+.weather-forecast .current .pollen:before {
+  content: "Pollen Count: ";
+  color: #888;
+}
+
+.weather-forecast .current .pcount:before {
+  content: "Pollen ";
+  color: #888;
+}
 
 .weather-forecast .future {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex; }
-  .weather-forecast .future .oneday {
-    -webkit-box-flex: 1;
-    -webkit-flex-grow: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1;
-    text-align: center; }
-    .weather-forecast .future .oneday .icon {
-      width: 64px;
-      height: 64px;
-      margin-left: auto;
-      margin-right: auto; }
-    .weather-forecast .future .oneday .temp-high, .weather-forecast .future .oneday .temp-low {
-      display: inline-block; }
-    .weather-forecast .future .oneday .temp-low {
-      color: #888; }
+  display: flex;
+}
+
+.weather-forecast .future .oneday {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.weather-forecast .future .oneday .icon {
+  width: 64px;
+  height: 64px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.weather-forecast .future .oneday .temp-high,
+.weather-forecast .future .oneday .temp-low {
+  display: inline-block;
+}
+
+.weather-forecast .future .oneday .temp-low {
+  color: #888;
+}
 
 .weather-forecast .icon {
   background-repeat: no-repeat;
-  background-size: contain; }
-  .weather-forecast .icon.clear-day {
-    background-image: url("../images/clear.png"); }
-  .weather-forecast .icon.clear {
-    background-image: url("../images/clear.png"); }
-  .weather-forecast .icon.clear-night {
-    background-image: url("../images/clear.png"); }
-  .weather-forecast .icon.rain {
-    background-image: url("../images/rain.png"); }
-  .weather-forecast .icon.snow {
-    background-image: url("../images/snow.png"); }
-  .weather-forecast .icon.sleet {
-    background-image: url("../images/sleet.png"); }
-  .weather-forecast .icon.windy {
-    background-image: url("../images/wind.png"); }
-  .weather-forecast .icon.fog {
-    background-image: url("../images/fog.png"); }
-  .weather-forecast .icon.cloudy {
-    background-image: url("../images/cloudy.png"); }
-  .weather-forecast .icon.partly-cloudy-day {
-    background-image: url("../images/partly-cloudy.png"); }
-  .weather-forecast .icon.partly-cloudy-night {
-    background-image: url("../images/partly-cloudy.png"); }
-  .weather-forecast .icon.thunderstorms {
-    background-image: url("../images/thunderstorm.png"); }
+  background-size: contain;
+}
+
+.weather-forecast .icon.clear-day {
+  background-image: url("../images/clear.png");
+}
+
+.weather-forecast .icon.clear {
+  background-image: url("../images/clear.png");
+}
+
+.weather-forecast .icon.clear-night {
+  background-image: url("../images/clear.png");
+}
+
+.weather-forecast .icon.rain {
+  background-image: url("../images/rain.png");
+}
+
+.weather-forecast .icon.snow {
+  background-image: url("../images/snow.png");
+}
+
+.weather-forecast .icon.sleet {
+  background-image: url("../images/sleet.png");
+}
+
+.weather-forecast .icon.windy {
+  background-image: url("../images/wind.png");
+}
+
+.weather-forecast .icon.fog {
+  background-image: url("../images/fog.png");
+}
+
+.weather-forecast .icon.cloudy {
+  background-image: url("../images/cloudy.png");
+}
+
+.weather-forecast .icon.partly-cloudy-day {
+  background-image: url("../images/partly-cloudy.png");
+}
+
+.weather-forecast .icon.partly-cloudy-night {
+  background-image: url("../images/partly-cloudy.png");
+}
+
+.weather-forecast .icon.thunderstorms {
+  background-image: url("../images/thunderstorm.png");
+}
 
 @media (max-width: 450px) {
-  .weather-forecast .date, .weather-forecast .description {
-    font-size: 0.9em; }
+  .weather-forecast .date,
+  .weather-forecast .description {
+    font-size: 0.9em;
+  }
   .weather-forecast .current .icon {
     width: 96px;
-    height: 96px; }
+    height: 96px;
+  }
   .weather-forecast .current .visual {
-    font-size: 3em; }
+    font-size: 3em;
+  }
   .weather-forecast .future .oneday .icon {
     width: 32px;
-    height: 32px; } }
+    height: 32px;
+  }
+}
 
 .mdl-button {
   background: transparent;
@@ -216,24 +330,43 @@
   text-decoration: none;
   text-align: center;
   line-height: 36px;
-  vertical-align: middle; }
-  .mdl-button::-moz-focus-inner {
-    border: 0; }
-  .mdl-button:hover {
-    background-color: rgba(158, 158, 158, 0.2); }
-  .mdl-button:focus:not(:active) {
-    background-color: rgba(0, 0, 0, 0.12); }
-  .mdl-button:active {
-    background-color: rgba(158, 158, 158, 0.4); }
-  .mdl-button.mdl-button--colored {
-    color: #3f51b5; }
-    .mdl-button.mdl-button--colored:focus:not(:active) {
-      background-color: rgba(0, 0, 0, 0.12); }
+  vertical-align: middle;
+}
+
+.mdl-button::-moz-focus-inner {
+  border: 0;
+}
+
+.mdl-button:hover {
+  background-color: rgba(158, 158, 158, 0.2);
+}
+
+.mdl-button:focus:not(:active) {
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+.mdl-button:active {
+  background-color: rgba(158, 158, 158, 0.4);
+}
+
+.mdl-button.mdl-button--colored {
+  color: #3f51b5;
+}
+
+.mdl-button.mdl-button--colored:focus:not(:active) {
+  background-color: rgba(0, 0, 0, 0.12);
+}
 
 .mdl-button--primary.mdl-button--primary {
-  color: #3f51b5; }
-  .mdl-button--primary.mdl-button--primary .mdl-ripple {
-    background: white; }
-  .mdl-button--primary.mdl-button--primary.mdl-button--raised, .mdl-button--primary.mdl-button--primary.mdl-button--fab {
-    color: white;
-    background-color: #3f51b5; }
+  color: #3f51b5;
+}
+
+.mdl-button--primary.mdl-button--primary .mdl-ripple {
+  background: white;
+}
+
+.mdl-button--primary.mdl-button--primary.mdl-button--raised,
+.mdl-button--primary.mdl-button--primary.mdl-button--fab {
+  color: white;
+  background-color: #3f51b5;
+}

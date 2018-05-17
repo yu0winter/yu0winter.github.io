@@ -14,9 +14,21 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="WonderfulPWA">
-    <link rel="apple-touch-icon" href="images/icons/icon-152x152.png">
-    <meta name="msapplication-TileImage" content="images/icons/icon-144x144.png">
+
+    <!-- iOS图标设置 -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/icons/icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../images/icons/icon-120x120.png">
+
+    <!-- iOS启动图设置 -->
+    <link rel="apple-touch-startup-image" sizes="1125x2436" href="../images/launch/iphoneX.png" media="(device-width: 375px) and (device-height: 812px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)">
+    <link rel="apple-touch-startup-image" sizes="1242x2208" href="../images/launch/iphone6plus.png" media="(device-width: 414px) and (device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)">
+    <link rel="apple-touch-startup-image" sizes="750x1334" href="../images/launch/iphone6.png" media="(device-width: 375px) and (device-height: 667px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)">
+    <link rel="apple-touch-startup-image" sizes="640x1136" href="../images/launch/iphone5.png" media="(device-width: 320px) and (device-height: 568px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)">
+
+    <!-- window10Mobile贴片图标 -->
+    <meta name="msapplication-TileImage" content="../images/icons/icon-144x144.png">
     <meta name="msapplication-TileColor" content="#2F3BA2">
+
     <!-- 新闻 -->
     <link rel="stylesheet" type="text/css" href="news.css">
     <script type="text/javascript" src="news.js" defer></script>
@@ -46,7 +58,7 @@
             <button id="toolbarItem0" tag='0' class="toolbar__Item__Button">天气</button>
         </div>
         <div class="toolbar__item">
-            <button id="toolbarItem1" tag='1' class="toolbar__Item__Button" style="background-color:gray;">新闻</button>
+            <button id="toolbarItem1" tag='1' class="toolbar__Item__Button" style="background-color:#3F51B5;color:white;">新闻</button>
         </div>
         <div class="toolbar__item">
             <button id="toolbarItem2" tag='2' class="toolbar__Item__Button">PWA简介</button>

@@ -5,22 +5,33 @@
     <meta charset="utf-8" />
     <title>WonderfulPWA</title>
     <link rel="manifest" href="/manifest.json">
-    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../AppShell/inline.css">
-    <!-- defer 表示延时执行。添加事件需要页面加载完成后执行 -->
-    <script type="text/javascript" src="../AppShell/shell.js" defer="defer"></script>
-    <script src="/scripts/main.js" defer></script>
+
     <!-- 侵入式体验 -->
     <link rel="manifest" href="manifest.json">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="WonderfulPWA">
-    <link rel="apple-touch-icon" href="../images/icons/icon-152x152.png">
+
+    <!-- iOS图标设置 -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/icons/icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../images/icons/icon-120x120.png">
+
+    <!-- iOS启动图设置 -->
+    <link rel="apple-touch-startup-image" sizes="1125x2436" href="../images/launch/iphoneX.png" media="(device-width: 375px) and (device-height: 812px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)">
+    <link rel="apple-touch-startup-image" sizes="1242x2208" href="../images/launch/iphone6plus.png" media="(device-width: 414px) and (device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)">
+    <link rel="apple-touch-startup-image" sizes="750x1334" href="../images/launch/iphone6.png" media="(device-width: 375px) and (device-height: 667px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)">
+    <link rel="apple-touch-startup-image" sizes="640x1136" href="../images/launch/iphone5.png" media="(device-width: 320px) and (device-height: 568px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)">
+
+
+    <!-- window10Mobile贴片图标 -->
     <meta name="msapplication-TileImage" content="../images/icons/icon-144x144.png">
     <meta name="msapplication-TileColor" content="#2F3BA2">
+
     <!-- 天气 -->
-    <script type="text/javascript" src="scripts/app.js" defer></script>
     <link rel="stylesheet" type="text/css" href="styles/weather.css">
+
 </head>
 
 <body>
@@ -42,7 +53,8 @@
                 <div class="visual">
                     <div class="icon"></div>
                     <div class="temperature">
-                        <span class="value"></span><span class="scale">°C</span>
+                        <span class="value"></span>
+                        <span class="scale">°C</span>
                     </div>
                 </div>
                 <div class="description">
@@ -137,7 +149,7 @@
                 <select id="selectCityToAdd">
                     <!-- Values map to Yahoo Weather API Where On Earth Identifiers (WOEIDs).
                https://developer.yahoo.com/weather/documentation.html#req -->
-                    <option value="2151194">北京, 通州区</option>
+                    <!-- <option value="2151194">北京, 通州区</option> -->
                     <option value="2150987">北京, 大兴区</option>
                     <option value="2151335">北京, 房山区</option>
                     <option value="2150935">北京, 丰台区</option>
@@ -158,13 +170,15 @@
             <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
         </svg>
     </div>
-    <!--底部导航栏-->
-    <style type="text/css">
-    /*以下为设置多栏div自动横向排列的样式*/
-    </style>>
+    <!-- defer 表示延时执行。添加事件需要页面加载完成后执行 -->
+    <script type="text/javascript" src="../AppShell/shell.js" defer="defer"></script>
+    <script src="/scripts/main.js" defer></script>
+
+    <script type="text/javascript" src="./scripts/app.js" async></script>
+
     <footer class="toolbar">
         <div class="toolbar__item">
-            <button id="toolbarItem0" tag='0' class="toolbar__Item__Button" style="background-color:gray;">天气</button>
+            <button id="toolbarItem0" tag='0' class="toolbar__Item__Button" style="background-color:#3F51B5;color:white;">天气</button>
         </div>
         <div class="toolbar__item">
             <button id="toolbarItem1" tag='1' class="toolbar__Item__Button">新闻</button>
@@ -173,6 +187,7 @@
             <button id="toolbarItem2" tag='2' class="toolbar__Item__Button">PWA简介</button>
         </div>
     </footer>
+
 </body>
 
 </html>
